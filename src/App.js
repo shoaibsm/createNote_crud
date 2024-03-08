@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import UpdateNotes from './components/updateNotes/UpdateNotes';
+import Notes from './pages/Notes';
+import { useDispatch, useSelector } from 'react-redux';
+import { getNotes } from './redux/slice/notesSlice';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	const [isUpdateModalOpen, setUpdateModalOpen] = useState(false);
+	const distpatch = useDispatch();
+
+	const openUpdateModal = useSelector((state) => state.updateReducer.isUpdateModalOpen)
+
+	console.log('paylaod value in App.js : ', openUpdateModal);
+
+	useEffect(() => {
+
+		setUpdateModalOpen(openUpdateModal)
+	}, [openUpdateModal,])
+
+	useEffect(() => {
+		distpatch(getNotes())
+	}, [])
+
+
+	return (
+		<div className="App">
+
+			<Notes />
+
+			{isUpdateModalOpen && <UpdateNotes />}
+		</div>
+	);
 }
 
 export default App;

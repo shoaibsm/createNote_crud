@@ -1,0 +1,100 @@
+.SingleNote {
+    background-color: var(--background-color);
+    border-radius: 4px;
+    position: relative;
+    transition: background-color 0.4s ease-in-out;
+
+    &:hover {
+        background-color: rgba(233, 236, 239, 0.8);
+    }
+
+    .SingleNote__container {
+        .SingleNote__titleText {
+            letter-spacing: 1px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            padding-inline: 8px;
+            margin-top: 8px;
+        }
+
+        .SingleNote__desc {
+            font-size: 1rem;
+            color: var(--primary-color);
+            padding-inline: 8px;
+            margin-block: 8px;
+        }
+
+        .SingleNote__timeBox {
+            display: flex;
+            column-gap: 8px;
+            padding-inline: 8px;
+            margin-bottom: 8px;
+
+            .SingleNote__createTime,
+            .SingleNote__updatedAt {
+                font-size: 0.6rem;
+                color: var(--text-color);
+                font-style: italic;
+                letter-spacing: 1px;
+            }
+        }
+
+    }
+
+
+    .SingleNote__actionBox {
+        width: 50px;
+        display: flex;
+        justify-content: space-between;
+        column-gap: 4px;
+
+        position: absolute;
+        right: 4px;
+        bottom: 4px;
+
+        .SingleNote__btn-delete {
+            width: 30px;
+            color: var(--text-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            cursor: pointer;
+
+            .icon-delete {
+                color: var(--primary-color);
+                transition: color 0.3s ease-in-out;
+            }
+
+            &:hover {
+                .icon-delete {
+                    color: rgb(255, 0, 0);
+                }
+
+            }
+        }
+
+        .SingleNote__Btn-edit {
+            width: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            cursor: pointer;
+
+            .icon-edit {
+                color: #212529;
+                transition: color 0.3s ease-in-out;
+            }
+
+            &:hover {
+                .icon-edit {
+                    color: var(--brand-color);
+                }
+            }
+        }
+    }
+}
