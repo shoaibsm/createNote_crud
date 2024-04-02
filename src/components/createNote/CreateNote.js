@@ -24,6 +24,9 @@ function CreateNote() {
 
             dispatch(getNotes());
 
+            titleInput.current.value = '';
+            contentInput.current.value = '';
+
         } catch (error) {
             console.error('Error creating note:', error.message);
         }

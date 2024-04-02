@@ -4,6 +4,7 @@ import UpdateNotes from './components/updateNotes/UpdateNotes';
 import Notes from './pages/Notes';
 import { useDispatch, useSelector } from 'react-redux';
 import { getNotes } from './redux/slice/notesSlice';
+import CreateNote from './components/createNote/CreateNote';
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
 
 	return (
 		<div className="App">
-
+			<CreateNote className="createNote" />
 			<Notes />
 
 			{isUpdateModalOpen && <UpdateNotes />}

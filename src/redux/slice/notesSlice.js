@@ -18,9 +18,8 @@ export const createNotes = createAsyncThunk('/createNote', async (body) => {
     try {
         const response = await axiosClient.post('/createNote', body);
 
-        console.log('create notes response ', response);
 
-        return response;
+        return response.data.result.updatedNote;
 
     } catch (error) {
         return Promise.reject(error)
@@ -32,7 +31,7 @@ export const deleteNote = createAsyncThunk('/delete', async (_id) => {
 
         const response = await axiosClient.delete('/delete', { data: { _id } })
 
-        return response
+        return response.data.result.updatedNote
 
     } catch (error) {
         return Promise.reject(error)

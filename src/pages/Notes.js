@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './Notes.scss'
-import CreateNote from '../components/createNote/CreateNote'
+// import CreateNote from '../components/createNote/CreateNote'
 import SingleNote from '../components/singleNote/SingleNote'
 import { useDispatch, useSelector } from 'react-redux'
 import { getNotes } from '../redux/slice/notesSlice'
@@ -19,7 +19,7 @@ function Notes() {
 
     useEffect(() => {
         distpatch(getNotes())
-    }, [])
+    }, [distpatch])
 
     if (status === 'loading') {
 
@@ -35,9 +35,9 @@ function Notes() {
 
     return (
         <div className='Notes'>
-            <div className="Notes__createNote">
+            {/* <div className="Notes__createNote">
                 <CreateNote />
-            </div>
+            </div> */}
 
             <div className="Notes__singleNote">
 
