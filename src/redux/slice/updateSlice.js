@@ -2,10 +2,15 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { axiosClient } from '../../utils/axiosClient';
 
 export const updateNotes = createAsyncThunk('/updateNotes', async (body) => {
+    try {
+        const response = await axiosClient.put('/update', body)
 
-    const response = await axiosClient.put('/update', body)
+        return response.data.result.updatedNote;
 
-    return response;
+    } catch (error) {
+        throw error
+    }
+
 })
 
 const updateSlice = createSlice({

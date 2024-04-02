@@ -33,9 +33,6 @@ function SingleNote({ note }) {
     async function handleDeleteClick() {
         try {
             await dispatch(deleteNote(note._id)).then(() => {
-
-                console.log('Notes deleted');
-                console.log(note._id);
             })
 
             dispatch(getNotes());

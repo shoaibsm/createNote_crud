@@ -12,11 +12,10 @@ function App() {
 
 	const openUpdateModal = useSelector((state) => state.updateReducer.isUpdateModalOpen)
 
-	console.log('paylaod value in App.js : ', openUpdateModal);
-
 	useEffect(() => {
 
 		setUpdateModalOpen(openUpdateModal)
+
 	}, [openUpdateModal,])
 
 	useEffect(() => {

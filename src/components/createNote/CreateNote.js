@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import './CreateNote.scss'
 import { useDispatch } from 'react-redux'
 import { createNotes, getNotes } from '../../redux/slice/notesSlice'
@@ -24,10 +24,8 @@ function CreateNote() {
 
             dispatch(getNotes());
 
-            console.log('notes created now ');
-
         } catch (error) {
-            console.error('Error creating note:', error);
+            console.error('Error creating note:', error.message);
         }
 
     }

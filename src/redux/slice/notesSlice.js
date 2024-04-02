@@ -5,7 +5,10 @@ export const getNotes = createAsyncThunk('/getAllNotes', async () => {
     try {
         const response = await axiosClient.get('/getAllNotes')
 
-        return response;
+        const notesData = response.data.result.notes;
+
+        return { notesData };
+
     } catch (error) {
         return Promise.reject(error)
     }
@@ -47,7 +50,8 @@ const notesSlice = createSlice({
         builder.addCase(getNotes.pending, (state) => {
             state.status = 'loading'
         }).addCase(getNotes.fulfilled, (state, action) => {
-            state.notesData = action.payload.data.result.notes;
+            // state.notesData = action.payload.data.result.notes;
+            state.notesData = action.payload.notesData;
             state.status = 'success'
         }).addCase(getNotes.rejected, (state) => {
             state.status = 'failed'

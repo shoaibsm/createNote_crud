@@ -16,9 +16,8 @@
         display: grid;
         grid-template-columns: repeat(2, 40%);
         justify-content: center;
-        gap: 20px;
-        padding-bottom: 16px;
-
+        gap: 16px;
+        margin-top: 16px;
     }
 
     @media only screen and (max-width: 576px) {
@@ -29,7 +28,6 @@
             grid-template-columns: 1fr;
         }
     }
-
 }
 
 .loading {
