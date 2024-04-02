@@ -44,9 +44,7 @@ function Notes() {
                 {reverseNotes.map((singleNote) => (
                     <SingleNote key={singleNote._id} note={singleNote} />
                 ))}
-
             </div>
-
         </div>
     )
 }

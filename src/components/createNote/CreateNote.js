@@ -15,10 +15,6 @@ function CreateNote() {
         const newTitle = titleInput.current.value;
         const newContent = contentInput.current.value
 
-
-        console.log('after set title value', newTitle);
-        console.log('after set content value', newContent);
-
         try {
             // Dispatch createNotes and wait for the promise to resolve
             await dispatch(createNotes({

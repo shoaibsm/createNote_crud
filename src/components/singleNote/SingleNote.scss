@@ -23,6 +23,7 @@
             font-size: 1rem;
             color: var(--primary-color);
             padding-inline: 8px;
+            padding-bottom: 20px;
             margin-top: 8px;
             margin-bottom: 16px;
         }
@@ -32,6 +33,8 @@
             column-gap: 8px;
             padding-inline: 8px;
             margin-bottom: 8px;
+            position: absolute;
+            bottom: -4px;
 
             .SingleNote__createTime,
             .SingleNote__updatedAt {
@@ -41,7 +44,6 @@
                 letter-spacing: 1px;
             }
         }
-
     }
 
     .SingleNote__actionBox {

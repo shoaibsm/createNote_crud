@@ -5,10 +5,7 @@ export const updateNotes = createAsyncThunk('/updateNotes', async (body) => {
 
     const response = await axiosClient.put('/update', body)
 
-    console.log('updated notes response is : ', response);
-
     return response;
-
 })
 
 const updateSlice = createSlice({

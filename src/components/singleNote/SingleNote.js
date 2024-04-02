@@ -20,18 +20,15 @@ function SingleNote({ note }) {
             minute: '2-digit',
         };
 
-        try {
-            const createdAtFormatted = new Intl.DateTimeFormat('en-US', formatOptions).format(new Date(note.createdAt));
-            const updatedAtFormatted = new Intl.DateTimeFormat('en-US', formatOptions).format(new Date(note.updatedAt));
+        const createdAtDate = new Date(note.createdAt);
+        const updatedAtDate = new Date(note.updatedAt);
 
-            setCreatedAtFormatted(`Created at : ${createdAtFormatted}`);
-            setUpdatedAtFormatted(`Updated at : ${updatedAtFormatted}`);
+        const createdAtFormatted = createdAtDate.toLocaleString('en-US', formatOptions);
+        const updatedAtFormatted = updatedAtDate.toLocaleString('en-US', formatOptions);
 
-        } catch (error) {
-            console.log(error);
-        }
+        setCreatedAtFormatted(`Created at: ${createdAtFormatted}`);
+        setUpdatedAtFormatted(`Updated at: ${updatedAtFormatted}`);
     }, [note.createdAt, note.updatedAt]);
-
 
     async function handleDeleteClick() {
         try {

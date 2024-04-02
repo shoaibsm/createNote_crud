@@ -10,10 +10,6 @@ function UpdateNotes() {
 
     const notes = useSelector((state) => state.notesReducer.notesData)
 
-    console.log('notes in updateNote ', notes);
-
-    console.log('Note Id in UpdateNotes : ', noteId);
-
     const dispatch = useDispatch();
     const inputTitle = useRef(null)
     const inputContent = useRef(null)
