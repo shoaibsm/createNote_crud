@@ -8,6 +8,8 @@ import { deleteNote, getNotes } from '../../redux/slice/notesSlice';
 function SingleNote({ note }) {
 
     const dispatch = useDispatch();
+    const [createdAtFormatted, setCreatedAtFormatted] = useState('');
+    const [updatedAtFormatted, setUpdatedAtFormatted] = useState('');
 
     useEffect(() => {
         const formatOptions = {
@@ -22,8 +24,9 @@ function SingleNote({ note }) {
             const createdAtFormatted = new Intl.DateTimeFormat('en-US', formatOptions).format(new Date(note.createdAt));
             const updatedAtFormatted = new Intl.DateTimeFormat('en-US', formatOptions).format(new Date(note.updatedAt));
 
-            document.getElementById('createTime').innerText = `Created at : ${createdAtFormatted}`;
-            document.getElementById('updatedAt').innerText = `Updated at : ${updatedAtFormatted}`;
+            setCreatedAtFormatted(`Created at : ${createdAtFormatted}`);
+            setUpdatedAtFormatted(`Updated at : ${updatedAtFormatted}`);
+
         } catch (error) {
             console.log(error);
         }
@@ -38,11 +41,7 @@ function SingleNote({ note }) {
                 console.log(note._id);
             })
 
-            console.log('calling get note');
-
             dispatch(getNotes());
-
-            console.log('called get note');
 
         } catch (error) {
             console.log(error);
@@ -64,9 +63,8 @@ function SingleNote({ note }) {
                 <p className="SingleNote__desc">{note.content}</p>
                 <div className="SingleNote__timeBox">
 
-                    <p className='SingleNote__createTime' id='createTime'></p>
-
-                    <p className='SingleNote__updatedAt' id='updatedAt'></p>
+                    <p className="SingleNote__createTime">{createdAtFormatted}</p>
+                    <p className="SingleNote__updatedAt">{updatedAtFormatted}</p>
                 </div>
             </div>
 

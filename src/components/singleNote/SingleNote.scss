@@ -3,9 +3,10 @@
     border-radius: 4px;
     position: relative;
     transition: background-color 0.4s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
 
     &:hover {
-        background-color: rgba(233, 236, 239, 0.8);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
     .SingleNote__container {
@@ -22,7 +23,8 @@
             font-size: 1rem;
             color: var(--primary-color);
             padding-inline: 8px;
-            margin-block: 8px;
+            margin-top: 8px;
+            margin-bottom: 16px;
         }
 
         .SingleNote__timeBox {
@@ -42,16 +44,13 @@
 
     }
 
-
     .SingleNote__actionBox {
         width: 50px;
         display: flex;
         justify-content: space-between;
-        column-gap: 4px;
-
         position: absolute;
         right: 4px;
-        bottom: 4px;
+        bottom: 20px;
 
         .SingleNote__btn-delete {
             width: 30px;
